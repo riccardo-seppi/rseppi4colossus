@@ -1,8 +1,5 @@
-from colossus.cosmology import cosmology
 from colossus.lss import peaks
 import numpy as np
-
-cosmo = cosmology.setCosmology('multidark-planck')    
 
 
 def seppi20(sigma,xoff,spin,z):
