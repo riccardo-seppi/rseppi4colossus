@@ -47,14 +47,20 @@ def seppi20(sigma,xoff,spin,z):
     h_log = A+np.log10(np.sqrt(2/np.pi)) + q*np.log10(np.sqrt(a)*dc/sigma_) - a/2/np.log(10)*dc**2/sigma_**2 + (alpha)*np.log10(xoff_/10**(1.83*mu)) - 1/np.log(10)*(xoff_/10**(1.83*mu))**(0.05*alpha) + gamma*np.log10(spin_/(10**(mu))) - 1/np.log(10)*(xoff_/10**(1.83*mu)/sigma_**e)**(beta)*(spin_/(10**(mu)))**(delta)   
     h = 10**h_log
 
-    g = np.zeros((len(sigma),len(xoff)))
+    g = np.zeros((len(sigma),len(xoff)))    
     for i in range(len(sigma)):
         for j in range(len(xoff)):
-            g[i,j] = integrate.simps(h[i,j,:],np.log10(spin))
+            if len(spin)==1:
+                g[i,j] = h[i,j,:]
+            else:    
+                g[i,j] = integrate.simps(h[i,j,:],np.log10(spin))
 
     f = np.zeros(len(sigma))
     for i in range(len(sigma)):
-        f[i] = integrate.simps(g[i,:],np.log10(xoff))
+        if len(xoff)==1:
+            f[i] = g[i,:]
+        else:    
+            f[i] = integrate.simps(g[i,:],np.log10(xoff))
     
     return f
 

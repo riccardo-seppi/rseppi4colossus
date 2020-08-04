@@ -29,9 +29,13 @@ spin = np.logspace(-3.5,-0.3,50)
 xoff2 = np.logspace(-3.5,-1.5,30)
 spin2 = np.logspace(-3.5,-1.5,30)
 
+xoff3 = np.array([0.1])
+spin3 = np.array([0.1])
+
 #build model and integrate it
 f_sigma = model_seppi20.seppi20(sigma,xoff,spin,z=0)
 f_sigma2 = model_seppi20.seppi20(sigma,xoff2,spin2,z=0)
+f_sigma3 = model_seppi20.seppi20(sigma,xoff3,spin3,z=0)
 
 #use bhattacharya11, despali16 and comparat17 for comparison
 mf_tinker=mf.massFunction(sigma,q_in='sigma', z=0, mdef = 'vir', model = 'tinker08', q_out = 'f') 
@@ -61,6 +65,7 @@ ax1.plot(x,mf_despali,label='despali16')
 ax1.plot(x,mf_comparat,label='comparat17')
 ax1.plot(x,f_sigma,label='seppi20')
 ax1.plot(x,f_sigma2,label='seppi20 subsample')
+ax1.plot(x,f_sigma3,label='seppi20 one value')
 #ax1.plot(x,h[:,25,20],label='slice seppi20')
 ax2.plot(x,r1)
 ax2.plot(x,r2)
