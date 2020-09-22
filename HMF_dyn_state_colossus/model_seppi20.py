@@ -64,12 +64,6 @@ def seppi20(sigma,xoff=None,spin=None,z=None,int_sigma=False,int_xoff=True,int_s
         spin = np.logspace(-3.5,-0.3,50)
     if z is None:
         z=0
-    if int_sigma is None:
-        int_sigma = False
-    if int_xoff is None:
-        int_xoff = True
-    if int_spin is None:
-        int_spin = True
 
     sigma_,xoff_,spin_ = np.meshgrid(sigma,xoff,spin,indexing='ij')
 
