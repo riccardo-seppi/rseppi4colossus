@@ -3,7 +3,7 @@ import numpy as np
 from scipy import integrate
 
 
-def seppi20(sigma,xoff=None,spin=None,z=None,int_sigma=False,int_xoff=True,int_spin=True):
+def seppi20(sigma,z,xoff=None,spin=None,int_sigma=False,int_xoff=True,int_spin=True):
     """
 	The mass function model of Seppi et al 2020.
 	
@@ -62,8 +62,6 @@ def seppi20(sigma,xoff=None,spin=None,z=None,int_sigma=False,int_xoff=True,int_s
         xoff = np.logspace(-3.5,-0.3,50)
     if spin is None:
         spin = np.logspace(-3.5,-0.3,50)
-    if z is None:
-        z=0
 
     sigma_,xoff_,spin_ = np.meshgrid(sigma,xoff,spin,indexing='ij')
 

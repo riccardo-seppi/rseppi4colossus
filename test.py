@@ -33,14 +33,14 @@ xoff3 = np.array([0.1])
 spin3 = np.array([0.1])
 
 #build model and integrate it
-g_sigma_xoff = model_seppi20.seppi20(sigma,xoff,z=0,int_xoff=False)
-g_sigma_spin = model_seppi20.seppi20(sigma,spin,z=0,int_spin=False)
-g_xoff_spin = model_seppi20.seppi20(xoff,spin,z=0,int_sigma=True, int_xoff=False, int_spin=False)
-f_sigma = model_seppi20.seppi20(sigma,xoff,spin,z=0)
-f_xoff = model_seppi20.seppi20(sigma,xoff,spin,z=0,int_xoff=False, int_sigma=True)
-f_spin = model_seppi20.seppi20(sigma,xoff,spin,z=0,int_spin=False, int_sigma=True)
-f_sigma2 = model_seppi20.seppi20(sigma,xoff2,spin2,z=0)
-f_sigma3 = model_seppi20.seppi20(sigma,xoff3,spin3,z=0)
+g_sigma_xoff = model_seppi20.seppi20(sigma,z=0,xoff=xoff,int_xoff=False)
+g_sigma_spin = model_seppi20.seppi20(sigma,z=0,spin=spin,int_spin=False)
+g_xoff_spin = model_seppi20.seppi20(sigma=None,z=0,xoff=xoff,spin=spin,int_sigma=True, int_xoff=False, int_spin=False)
+f_sigma = model_seppi20.seppi20(sigma,z=0,xoff=xoff,spin=spin)
+f_xoff = model_seppi20.seppi20(sigma,z=0,xoff=xoff,spin=spin,int_xoff=False, int_sigma=True)
+f_spin = model_seppi20.seppi20(sigma,z=0,xoff=xoff,spin=spin,int_spin=False, int_sigma=True)
+f_sigma2 = model_seppi20.seppi20(sigma,z=0,xoff=xoff2,spin=spin2)
+f_sigma3 = model_seppi20.seppi20(sigma,z=0,xoff=xoff3,spin=spin3)
 
 #use bhattacharya11, despali16 and comparat17 for comparison
 mf_tinker=mf.massFunction(sigma,q_in='sigma', z=0, mdef = 'vir', model = 'tinker08', q_out = 'f') 
