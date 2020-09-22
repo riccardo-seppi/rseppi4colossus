@@ -3,7 +3,7 @@ import numpy as np
 from scipy import integrate
 
 
-def seppi20(sigma,xoff=None,spin=None,z=None,int_sigma=None,int_xoff=None,int_spin=None):
+def seppi20(sigma,xoff=None,spin=None,z=None,int_sigma=False,int_xoff=True,int_spin=True):
     """
 	The mass function model of Seppi et al 2020.
 	
